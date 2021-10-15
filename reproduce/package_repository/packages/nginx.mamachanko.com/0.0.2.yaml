@@ -1,0 +1,22 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: nginx.mamachanko.com.0.0.2
+spec:
+  refName: nginx.mamachanko.com
+  version: 0.0.2
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: mamachanko/nginx-package
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - '-'
+          - .imgpkg/images.yml
+      deploy:
+      - kapp: {}

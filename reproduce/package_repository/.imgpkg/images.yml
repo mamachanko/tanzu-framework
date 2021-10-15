@@ -1,0 +1,7 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+images:
+- annotations:
+    kbld.carvel.dev/id: mamachanko/nginx-package
+  image: index.docker.io/mamachanko/nginx-package@sha256:6cfe3640b04fa3868be8f87ca0856fb67b11a6c19183ce26f76da19019272d72
+kind: ImagesLock

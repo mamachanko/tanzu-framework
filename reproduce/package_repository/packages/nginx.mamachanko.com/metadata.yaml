@@ -1,0 +1,7 @@
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  name: nginx.mamachanko.com
+spec:
+  displayName: nginx

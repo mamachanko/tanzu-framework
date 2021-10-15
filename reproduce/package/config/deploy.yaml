@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      initContainers:
+      - image: alpine:3.14.2
+        name: delay
+        command:
+        - sh
+        - -euo
+        - pipefail
+        args:
+        - -c
+        - |
+          echo delaying startup ...
+          sleep 5
+      containers:
+      - image: nginx:1.21.3-alpine
+        name: nginx
